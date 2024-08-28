@@ -20,7 +20,7 @@ export function MapFilterList() {
     );
 
     return (
-        <div className="flex w-full gap-x-10 mt-5 overflow-x-scroll no-scrollbar">
+        <div className="flex w-full gap-x-10 mt-5 min-h-16 overflow-x-scroll no-scrollbar">
             {categoryItems.map((item) => (
                 <Link
                     href={
@@ -30,7 +30,7 @@ export function MapFilterList() {
                     className={cn(
                         search === item.name
                             ? 'border-b-2 border-black pb-2 flex-shrink-0'
-                            : 'opacity-70 flex-shrink-0',
+                            : 'opacity-70 flex-shrink-0 hover:border-b-2 border-gray-300 hover:opacity-100',
                         'flex flex-col gap-y-3 items-center'
                     )}
                 >

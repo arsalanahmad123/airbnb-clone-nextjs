@@ -5,13 +5,19 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger,
     DropdownMenuItem,
+    DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
 
 import { UserButton, useUser, SignOutButton } from '@clerk/nextjs';
+import { createAirbnbHome } from '@/app/actions';
 
 export default function UserNav() {
     const { user } = useUser();
+
+    const createHomeWithID = createAirbnbHome.bind(null, {
+        userId: user?.id as string,
+    });
 
     return (
         <DropdownMenu>
@@ -49,15 +55,36 @@ export default function UserNav() {
                 ) : (
                     <>
                         <DropdownMenuItem>
+                            <form action={createHomeWithID} className="w-full">
+                                <button
+                                    type="submit"
+                                    className="w-full text-start"
+                                >
+                                    Airbnb your Home
+                                </button>
+                            </form>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
                             <Link className="w-full" href={'/profile'}>
                                 Profile
                             </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
-                            <Link className="w-full" href={'/settings'}>
-                                Settings
+                            <Link className="w-full" href={'/my-homes'}>
+                                My Listings
                             </Link>
                         </DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <Link className="w-full" href={'/favorites'}>
+                                My Favorites
+                            </Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <Link className="w-full" href={'/reservations'}>
+                                My Reservations
+                            </Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuSeparator />
                         <DropdownMenuItem>
                             <SignOutButton>Logout</SignOutButton>
                         </DropdownMenuItem>

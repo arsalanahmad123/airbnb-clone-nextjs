@@ -5,6 +5,9 @@ const nextConfig = {
             {
                 hostname: 'a0.muscache.com',
             },
+            {
+                hostname: 'dfvtqoezdkkejzkhwvji.supabase.co',
+            },
         ],
     },
 };
