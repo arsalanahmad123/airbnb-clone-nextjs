@@ -11,7 +11,13 @@ async function getData({
     searchParams,
     userId,
 }: {
-    searchParams?: { filter?: string };
+    searchParams?: {
+        filter?: string;
+        country?: string;
+        guests?: string;
+        rooms?: string;
+        bathrooms?: string;
+    };
     userId: string | undefined;
 }) {
     const data = await prisma.home.findMany({
@@ -20,6 +26,10 @@ async function getData({
             addedDescription: true,
             addedLocation: true,
             categoryName: searchParams?.filter ?? undefined,
+            country: searchParams?.country ?? undefined,
+            guests: searchParams?.guests ?? undefined,
+            bedrooms: searchParams?.rooms ?? undefined,
+            bathrooms: searchParams?.bathrooms ?? undefined,
         },
         select: {
             photo: true,
@@ -54,7 +64,13 @@ export default async function Home({
 async function ShowItems({
     searchParams,
 }: {
-    searchParams?: { filter?: string };
+    searchParams?: {
+        filter?: string;
+        country?: string;
+        guests?: string;
+        rooms?: string;
+        bathrooms?: string;
+    };
 }) {
     const user = await currentUser();
 
@@ -65,7 +81,10 @@ async function ShowItems({
     return (
         <>
             {data.length === 0 ? (
-                <NoItem />
+                <NoItem
+                    title="Sorry no listings for this category found..."
+                    description="Please check other category or create your own listing!"
+                />
             ) : (
                 <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-8 mt-8 mb-2">
                     {data.map((item) => (
@@ -76,6 +95,12 @@ async function ShowItems({
                             location={item.country as string}
                             price={item.price as number}
                             userId={user?.id ?? undefined}
+                            isInFavoriteList={
+                                item.Favorite.length > 0 ? true : false
+                            }
+                            favoriteId={item.Favorite[0]?.id}
+                            homeId={item.id}
+                            pathName="/"
                         />
                     ))}
                 </div>
