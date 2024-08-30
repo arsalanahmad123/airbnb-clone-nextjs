@@ -1,7 +1,10 @@
 import { currentUser } from '@clerk/nextjs/server';
 import prisma from '@/lib/db';
 import { NextResponse } from 'next/server';
+import { unstable_noStore as noStore } from 'next/cache';
+
 export async function GET() {
+    noStore();
     const user = await currentUser();
 
     if (!user || user.id === null || !user.id) {
@@ -28,5 +31,5 @@ export async function GET() {
         });
     }
 
-    return NextResponse.redirect('http://localhost:3000');
+    return NextResponse.redirect('https://airbnb-clone-arsalan.vercel.app');
 }

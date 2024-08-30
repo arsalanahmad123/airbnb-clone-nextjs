@@ -5,14 +5,15 @@ import { Separator } from '@/components/ui/separator';
 import prisma from '@/lib/db';
 import { useCountries } from '@/lib/getCountries';
 import { currentUser } from '@clerk/nextjs/server';
-import { redirect } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { createReservation } from '@/app/actions';
 import { ReservationSubmitButton } from '@/components/SubmitButtons';
+import { unstable_noStore as noStore } from 'next/cache';
 
 async function getData(homeID: string) {
+    noStore();
     const res = await prisma.home.findUnique({
         where: {
             id: homeID,
