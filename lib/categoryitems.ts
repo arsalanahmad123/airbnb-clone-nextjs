@@ -97,18 +97,58 @@ export const categoryItems: iAppProps[] = [
     },
     {
         id: 11,
-        name: 'omg',
+        name: 'Rooms',
         description: 'This Property has a wow factor',
-        title: 'WOW!',
+        title: 'Rooms',
         imageUrl:
-            'https://a0.muscache.com/pictures/c5a4f6fc-c92c-4ae8-87dd-57f1ff1b89a6.jpg',
+            'https://a0.muscache.com/pictures/7630c83f-96a8-4232-9a10-0398661e2e6f.jpg',
     },
     {
         id: 12,
-        name: 'surfing',
-        description: 'This Property is located near to a surfing spot',
-        title: 'Surfing',
+        name: 'Amazing views',
+        description: 'This Property is located near to a amazing views',
+        title: 'Amazing views',
         imageUrl:
-            'https://a0.muscache.com/pictures/957f8022-dfd7-426c-99fd-77ed792f6d7a.jpg',
+            'https://a0.muscache.com/pictures/3b1eb541-46d9-4bef-abc4-c37d77e3c21b.jpg',
+    },
+    {
+        id: 13,
+        name: 'Top cities',
+        description: 'This property is located in popular top cities ',
+        title: 'Top cities',
+        imageUrl:
+            'https://a0.muscache.com/pictures/ed8b9e47-609b-44c2-9768-33e6a22eccb2.jpg',
+    },
+    {
+        id: 14,
+        name: 'Windmills',
+        description: 'This property is in windmills',
+        title: 'Windmills',
+        imageUrl:
+            'https://a0.muscache.com/pictures/5cdb8451-8f75-4c5f-a17d-33ee228e3db8.jpg',
+    },
+    {
+        id: 15,
+        name: 'Caves',
+        description: 'This property is like caves',
+        title: 'Caves',
+        imageUrl:
+            'https://a0.muscache.com/pictures/4221e293-4770-4ea8-a4fa-9972158d4004.jpg',
+    },
+    {
+        id: 15,
+        name: "Shepherd's huts",
+        description: "This property is like shephered's huts",
+        title: "Shepherd's huts",
+        imageUrl:
+            'https://a0.muscache.com/pictures/747b326c-cb8f-41cf-a7f9-809ab646e10c.jpg',
+    },
+    {
+        id: 15,
+        name: 'Golfing',
+        description: 'This property is near golf areas',
+        title: 'Golfing',
+        imageUrl:
+            'https://a0.muscache.com/pictures/6b639c8d-cf9b-41fb-91a0-91af9d7677cc.jpg',
     },
 ];

@@ -55,7 +55,7 @@ export default function SearchComponent() {
                     <Search className="h-8 w-8 rounded-full bg-primary text-white p-1" />
                 </div>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="sm:max-w-[425px] md:max-w-[600px]">
                 <form action="" className="flex flex-col gap-4">
                     <input type="hidden" name="country" value={locationValue} />
                     {step === 1 ? (
